@@ -28,14 +28,14 @@ Once the extension is installed, simply use it in your code by:
 Create service for model:
 
 ```php
-use MP\Services\MPBaseModelService;
+use MP\Services\BaseModelService;
 
 /**
  * ...
  *
  * @property SampleModel $model
  */
-class MyCustomService extends MPBaseModelService
+class MyCustomService extends BaseModelService
 {
     /**
      * My simple method
@@ -54,7 +54,7 @@ Create model:
 ```php
 ...
 
-use MP\Services\MPImplementServices;
+use MP\Services\ImplementServices;
 
 /**
  * Use services in model
@@ -65,7 +65,7 @@ use MP\Services\MPImplementServices;
  */
 class SampleModel extends ActiveRecord
 {
-    use MPImplementServices;
+    use ImplementServices;
     
     /**
      * @inheritdoc
@@ -87,4 +87,4 @@ $model = new SampleModel();
 $model->customService->getSampleMethod();
 ```
 
-For controllers, everything is the same, only the service is inherited from **MPBaseControllerService**
+For controllers, everything is the same, only the service is inherited from **BaseControllerService**
