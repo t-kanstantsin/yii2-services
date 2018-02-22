@@ -6,7 +6,7 @@
  * Time: 12:10
  */
 
-namespace common\components;
+namespace MP\Services;
 
 use yii\base\BaseObject;
 use yii\base\UnknownMethodException;
@@ -14,7 +14,7 @@ use yii\base\UnknownPropertyException;
 
 /**
  * Trait    MPImplementServices
- * @package common\components
+ * @package MP\Services
  * @author  Yarmaliuk Mikhail
  * @version 1.0
  *

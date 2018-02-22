@@ -6,13 +6,13 @@
  * Time: 15:53
  */
 
-namespace common\components;
+namespace MP\Services;
 
 use yii\db\ActiveRecordInterface;
 
 /**
  * Class    MPBaseService
- * @package common\components
+ * @package MP\Services
  * @author  Yarmaliuk Mikhail
  * @version 1.0
  */

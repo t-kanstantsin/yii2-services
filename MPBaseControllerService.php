@@ -6,18 +6,20 @@
  * Time: 15:53
  */
 
-namespace common\components;
+namespace MP\Services;
+
+use yii\base\Controller;
 
 /**
  * Class    MPBaseControllerService
- * @package common\components
+ * @package MP\Services
  * @author  Yarmaliuk Mikhail
  * @version 1.0
  */
 abstract class MPBaseControllerService
 {
     /**
-     * @var
+     * @var Controller
      */
     protected $controller;
 
