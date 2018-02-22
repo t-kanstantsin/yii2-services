@@ -1,0 +1,22 @@
+{
+  "name": "matthew-p/yii2-services",
+  "description": "Extension provide very simply use services for models and controllers",
+  "type": "yii2-extension",
+  "keywords": ["yii2","extension","services","controller","model"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Matthew Patell",
+      "email": "lukomi@mail.ru"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "yiisoft/yii2": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "MP\\Services\\": ""
+    }
+  }
+}
