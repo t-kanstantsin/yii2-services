@@ -20,7 +20,7 @@ use yii\base\UnknownPropertyException;
  *
  * @mixin BaseObject
  */
-trait ImplementServices
+trait MPImplementServices
 {
     /**
      * @var array
