@@ -13,14 +13,14 @@ use yii\base\UnknownMethodException;
 use yii\base\UnknownPropertyException;
 
 /**
- * Trait    MPImplementServices
+ * Trait    ImplementServices
  * @package MP\Services
  * @author  Yarmaliuk Mikhail
  * @version 1.0
  *
  * @mixin BaseObject
  */
-trait MPImplementServices
+trait ImplementServices
 {
     /**
      * @var array

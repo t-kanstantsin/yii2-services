@@ -11,12 +11,12 @@ namespace MP\Services;
 use yii\base\Controller;
 
 /**
- * Class    MPBaseControllerService
+ * Class    BaseControllerService
  * @package MP\Services
  * @author  Yarmaliuk Mikhail
  * @version 1.0
  */
-abstract class MPBaseControllerService
+abstract class BaseControllerService
 {
     /**
      * @var Controller

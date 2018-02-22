@@ -11,12 +11,12 @@ namespace MP\Services;
 use yii\db\ActiveRecordInterface;
 
 /**
- * Class    MPBaseService
+ * Class    BaseService
  * @package MP\Services
  * @author  Yarmaliuk Mikhail
  * @version 1.0
  */
-abstract class MPBaseModelService
+abstract class BaseModelService
 {
     /**
      * @var ActiveRecordInterface
@@ -45,7 +45,7 @@ abstract class MPBaseModelService
      * @param bool $runValidation
      * @param null $attributeNames
      *
-     * @return MPBaseModelService
+     * @return BaseModelService
      */
     public function save($runValidation = true, $attributeNames = null): self
     {
