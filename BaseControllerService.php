@@ -8,18 +8,16 @@
 
 namespace MP\Services;
 
-use yii\base\Controller;
-
 /**
  * Class    BaseControllerService
  * @package MP\Services
  * @author  Yarmaliuk Mikhail
  * @version 1.0
  */
-abstract class BaseControllerService
+class BaseControllerService extends BaseService
 {
     /**
-     * @var Controller
+     * @var \yii\base\Controller
      */
     protected $controller;
 
@@ -33,9 +31,7 @@ abstract class BaseControllerService
     public function __construct($controller, array $params = [])
     {
         $this->controller = $controller;
-    }
 
-    private function __clone()
-    {
+        parent::__construct($params);
     }
 }

@@ -8,18 +8,16 @@
 
 namespace MP\Services;
 
-use yii\db\ActiveRecordInterface;
-
 /**
  * Class    BaseService
  * @package MP\Services
  * @author  Yarmaliuk Mikhail
  * @version 1.0
  */
-abstract class BaseModelService
+class BaseModelService extends BaseService
 {
     /**
-     * @var ActiveRecordInterface
+     * @var \yii\db\ActiveRecordInterface
      */
     protected $model;
 
@@ -33,10 +31,8 @@ abstract class BaseModelService
     public function __construct($model, array $params = [])
     {
         $this->model = $model;
-    }
 
-    private function __clone()
-    {
+        parent::__construct($params);
     }
 
     /**
