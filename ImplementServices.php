@@ -85,7 +85,7 @@ trait ImplementServices
             if (!isset($this->servicesInstances[$name])) {
                 $className = static::services()[$name];
 
-                $this->servicesInstances[$name] = new $className($this, is_array($params[0]) ? $params[0] : []);
+                $this->servicesInstances[$name] = new $className($this, isset($params[0]) && is_array($params[0]) ? $params[0] : []);
             }
 
             return $this->servicesInstances[$name];
