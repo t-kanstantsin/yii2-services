@@ -45,15 +45,8 @@ trait ImplementServices
         try {
             return parent::__get($name);
         } catch (UnknownPropertyException $exception) {
-            // Get controller service
-            if (isset(static::services()[$name])) {
-                if (!isset($this->servicesInstances[$name])) {
-                    $className = static::services()[$name];
-
-                    $this->servicesInstances[$name] = new $className($this, []);
-                }
-
-                return $this->servicesInstances[$name];
+            if ($service = $this->getService($name)) {
+                return $service;
             }
 
             throw new UnknownPropertyException('', 0, $exception);
@@ -68,18 +61,36 @@ trait ImplementServices
         try {
             return parent::__call($name, $params);
         } catch (UnknownMethodException $exception) {
-            // Get model service
             $sName = lcfirst(substr($name, 3, strlen($name)));
 
-            if (isset(static::services()[$sName])) {
-                $className = (static::services()[$sName]);
-
-                $this->servicesInstances[$sName] = new $className($this, is_array($params[0]) ? $params[0] : []);
-
-                return $this->servicesInstances[$sName];
+            if ($service = $this->getService($sName, (array) $params)) {
+                return $service;
             }
 
             throw new UnknownMethodException('', 0, $exception);
         }
+    }
+
+    /**
+     * Get service by name
+     *
+     * @param string $name
+     * @param array  $params
+     *
+     * @return null
+     */
+    protected function getService(string $name, array $params = [])
+    {
+        if (isset(static::services()[$name])) {
+            if (!isset($this->servicesInstances[$name])) {
+                $className = static::services()[$name];
+
+                $this->servicesInstances[$name] = new $className($this, is_array($params[0]) ? $params[0] : []);
+            }
+
+            return $this->servicesInstances[$name];
+        }
+
+        return NULL;
     }
 }
