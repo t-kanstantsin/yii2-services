@@ -79,7 +79,7 @@ trait ImplementServices
      *
      * @return null
      */
-    protected function getService(string $name, array $params = [])
+    private function getService(string $name, array $params = [])
     {
         if (isset(static::services()[$name])) {
             if (!isset($this->servicesInstances[$name])) {
