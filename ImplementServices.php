@@ -81,14 +81,30 @@ trait ImplementServices
      */
     private function getService(string $name, array $params = [])
     {
-        if (isset(static::services()[$name])) {
-            if (!isset($this->servicesInstances[$name])) {
-                $className = static::services()[$name];
+        $className = $this->getClassName($name);
 
+        if ($className) {
+            if (!isset($this->servicesInstances[$name])) {
                 $this->servicesInstances[$name] = new $className($this, isset($params[0]) && is_array($params[0]) ? $params[0] : []);
             }
 
             return $this->servicesInstances[$name];
+        }
+
+        return NULL;
+    }
+
+    /**
+     * Get service class name
+     *
+     * @param string $name
+     *
+     * @return string|NULL
+     */
+    private function getClassName(string $name)
+    {
+        if (isset(static::services()[$name])) {
+            return static::services()[$name];
         }
 
         return NULL;
