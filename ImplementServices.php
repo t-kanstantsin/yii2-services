@@ -103,10 +103,6 @@ trait ImplementServices
      */
     private function getClassName(string $name)
     {
-        if (isset(static::services()[$name])) {
-            return static::services()[$name];
-        }
-
-        return NULL;
+        return static::services()[$name] ?? NULL;
     }
 }
