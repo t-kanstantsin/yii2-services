@@ -82,6 +82,7 @@ trait ImplementServices
     private function getService(string $name, array $params = []): ?BaseService
     {
         $className = $this->getClassName($name);
+
         if ($className === NULL) {
             return NULL;
         }
