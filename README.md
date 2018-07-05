@@ -1,8 +1,7 @@
 # yii2-services
 Extension provide very simply use services for models and controllers
 
-Installation
-------------
+## Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
@@ -20,8 +19,7 @@ or add
 
 to the require section of your `composer.json` file.
 
-Usage
------
+## Usage
 
 Once the extension is installed, simply use it in your code by:
 
@@ -70,10 +68,15 @@ class SampleModel extends ActiveRecord
     /**
      * @inheritdoc
      */
-    public static function services(): array
+    public function services(): array
     {
         return [
-            'customService' => MyCustomService::class,
+            'customService1' => MyCustomService::class,
+            'customService2' => [
+                'class' => MyCustomService::class,
+                'property1' => 'value1',
+                'property2' => 'value2',
+            ],
         ];
     }
     
@@ -88,3 +91,15 @@ $model->customService->getSampleMethod();
 ```
 
 For controllers, everything is the same, only the service is inherited from **BaseControllerService**
+
+
+## Change Log
+
+### 3.0
+
+- Allow configure services in yii2 behavior-like config
+- Make `services()` method non-static - allows `$this` context in services definitions
+
+### 2.0
+
+- Restrict services - must extend BaseService class
