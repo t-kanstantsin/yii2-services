@@ -122,6 +122,7 @@ trait ImplementServices
             unset($serviceConfig['class']);
             $config = $serviceConfig;
         }
+        $config = array_merge($config, isset($params[0]) && \is_array($params[0]) ? $params[0] : []);
 
         if ($class === NULL) {
             throw new InvalidConfigException('Object configuration must contain a "class" element.');
