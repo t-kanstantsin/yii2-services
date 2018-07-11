@@ -22,7 +22,7 @@
   },
   "autoload": {
     "psr-4": {
-      "MP\\Services\\": ""
+      "MP\\Services\\": "./src"
     }
   },
   "config": {
