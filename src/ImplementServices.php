@@ -77,9 +77,9 @@ trait ImplementServices
      * @param string $name
      * @param array  $params
      *
-     * @return BaseService|null
+     * @return IService|null
      */
-    private function getService(string $name, array $params = []): ?BaseService
+    private function getService(string $name, array $params = []): ?IService
     {
         $className = $this->getClassName($name);
 
