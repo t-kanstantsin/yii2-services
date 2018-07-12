@@ -69,7 +69,7 @@ trait ImplementServices
             $service = $this->getService($name);
 
             if ($service === NULL) {
-                throw new UnknownPropertyException('', 0, $exception);
+                throw $exception;
             }
 
             return $service;
@@ -115,7 +115,7 @@ trait ImplementServices
             $service = $this->getService($sName, (array) $params);
 
             if ($service === NULL) {
-                throw new UnknownMethodException('', 0, $exception);
+                throw $exception;
             }
 
             return $service;
