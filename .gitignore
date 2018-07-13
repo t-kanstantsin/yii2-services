@@ -9,6 +9,8 @@ codecept
 tests/_support/_generated/*
 tests/_data/*
 tests/_output/*
+coverage
+coverage.xml
 
 # Cache directories
 Thumbs.db
