@@ -31,7 +31,15 @@
       "MP\\Services\\": "./src"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "MP\\Services\\Stub\\": "stub/"
+    }
+  },
   "config": {
     "sort-packages": true
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.2"
   }
 }
