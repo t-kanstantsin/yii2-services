@@ -1,29 +1,72 @@
 <?php
 
+use MP\Services\Stub\BaseModelServiceStub;
+use MP\Services\Stub\BaseServiceStub;
 use MP\Services\Stub\ModelBaseServiceStub;
-use MP\Services\Stub\ModelConfigAsArrayStub;
-use MP\Services\Stub\ModelConfigMissingClassStub;
-use MP\Services\Stub\ModelConfigNumberStub;
+use MP\Services\Stub\ServiceWrongInterfaceStub;
 use PHPUnit\Framework\TestCase;
+use yii\base\InvalidConfigException;
 
 class ConfigTests extends TestCase
 {
-    public function testDeclarationWithClassName()
+    public function testDeclarationWithClassName(): void
     {
         $stub = new ModelBaseServiceStub();
+        $this->assertInstanceOf(BaseServiceStub::class, $stub->service);
+    }
+
+    public function testDeclarationWithArray(): void
+    {
+        $stub = new ModelBaseServiceStub();
+        $stub->setServicesConfig([
+            'service' => [
+                'class' => BaseServiceStub::class,
+            ],
+        ]);
+
+        $this->assertInstanceOf(BaseServiceStub::class, $stub->service);
+    }
+
+    public function testMissingClassElement(): void
+    {
+        $stub = new ModelBaseServiceStub();
+        $stub->setServicesConfig([
+            'service' => [],
+        ]);
+
+        $this->expectException(InvalidConfigException::class);
         $stub->service;
     }
 
-    public function testDeclarationWithArray()
+    public function testWrongServiceInterface(): void
     {
-        $stub = new ModelConfigAsArrayStub();
+        $stub = new ModelBaseServiceStub();
+        $stub->setServicesConfig([
+            'service' => ServiceWrongInterfaceStub::class,
+        ]);
+
+        $this->expectException(InvalidConfigException::class);
         $stub->service;
     }
 
-    public function testMissingClassElement()
+    public function testServiceNotExistedClass(): void
     {
-        $stub = new ModelConfigMissingClassStub();
-        $this->expectException(\yii\base\InvalidConfigException::class);
+        $stub = new ModelBaseServiceStub();
+        $stub->setServicesConfig([
+            'service' => 'FooBar',
+        ]);
+
+        $this->expectException(InvalidConfigException::class);
         $stub->service;
+    }
+
+    public function testBaseModelServiceInitialization(): void
+    {
+        $stub = new ModelBaseServiceStub();
+        $stub->setServicesConfig([
+            'service' => BaseModelServiceStub::class,
+        ]);
+
+        $this->assertSame($stub, $stub->service->getModel());
     }
 }

@@ -68,13 +68,11 @@ trait ImplementServices
         try {
             return parent::__get($name);
         } catch (UnknownPropertyException $exception) {
-            $service = $this->getService($name);
-
-            if ($service === null) {
+            if (!$this->hasService($name)) {
                 throw $exception;
             }
 
-            return $service;
+            return $this->getService($name);
         }
     }
 
@@ -92,7 +90,6 @@ trait ImplementServices
                 throw $exception;
             }
 
-            //var_dump($this->getServiceConfig($name)['class']); exit;
             $class = $this->getServiceConfig($name)['class'];
             if (!\is_object($value) || !($value instanceof $class)) {
                 throw new InvalidCallException(sprintf('%s::%s expected to be instance of %s, but %s given', self::class, $name, $class, \is_object($value) ? \get_class($value) : \gettype($value)));
@@ -129,7 +126,7 @@ trait ImplementServices
         try {
             return parent::__call($name, $params);
         } catch (UnknownMethodException $exception) {
-            $sName = lcfirst(substr($name, 3, strlen($name)));
+            $sName = \lcfirst(substr($name, 3, \strlen($name)));
             $service = $this->getService($sName, (array) $params);
 
             if ($service === null) {
@@ -164,8 +161,8 @@ trait ImplementServices
         unset($serviceConfig['class']);
         $serviceConfig = array_merge($serviceConfig, isset($params[0]) && \is_array($params[0]) ? $params[0] : []);
 
-        if ($class === null) {
-            throw new InvalidConfigException('Object configuration must contain a "class" element.');
+        if (!class_exists($class)) {
+            throw new InvalidConfigException(sprintf('Class %s does not exists', $class));
         }
 
         if (\is_subclass_of($class, BaseModelService::class)

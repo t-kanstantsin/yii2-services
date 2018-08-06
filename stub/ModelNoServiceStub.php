@@ -10,7 +10,31 @@ namespace MP\Services\Stub;
 
 use yii\base\BaseObject;
 
+/**
+ * Class ModelNoServiceStub
+ */
 class ModelNoServiceStub extends BaseObject
 {
     use ImplementServicesStub;
+
+    /**
+     * @var array
+     */
+    private $servicesConfig = [];
+
+    /**
+     * @inheritdoc
+     */
+    public function services(): array
+    {
+        return $this->servicesConfig;
+    }
+
+    /**
+     * @param array $config
+     */
+    public function setServicesConfig(array $config): void
+    {
+        $this->servicesConfig = $config;
+    }
 }

@@ -2,8 +2,15 @@
 
 namespace MP\Services\Stub;
 
-use MP\Services\BaseService;
+use MP\Services\BaseModelService;
 
-class BaseModelServiceStub extends BaseService
+class BaseModelServiceStub extends BaseModelService
 {
+    /**
+     * @return \yii\db\ActiveRecordInterface
+     */
+    public function getModel()
+    {
+        return $this->model;
+    }
 }

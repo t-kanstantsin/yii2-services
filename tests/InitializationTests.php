@@ -1,15 +1,12 @@
 <?php
 
 use MP\Services\Stub\BaseServiceStub;
-use MP\Services\Stub\InheritServiceStub;
 use MP\Services\Stub\ModelBaseServiceStub;
-use MP\Services\Stub\ModelConfigAsArrayStub;
-use MP\Services\Stub\ModelConfigMissingClassStub;
-use MP\Services\Stub\ModelConfigNumberStub;
-use MP\Services\Stub\ModelNoServiceStub;
 use PHPUnit\Framework\TestCase;
-use yii\base\InvalidCallException;
 
+/**
+ * Class InitializationTests
+ */
 class InitializationTests extends TestCase
 {
     public function testInitialization(): void

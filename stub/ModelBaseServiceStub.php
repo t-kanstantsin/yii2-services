@@ -8,21 +8,24 @@
 
 namespace MP\Services\Stub;
 
-use yii\base\BaseObject;
-
 /**
  * Class ObjectStub
  *
  * @property BaseServiceStub $service
+ * @method BaseServiceStub getService()
  */
-class ModelBaseServiceStub extends BaseObject
+class ModelBaseServiceStub extends ModelNoServiceStub
 {
-    use ImplementServicesStub;
-
-    public function services(): array
+    /**
+     * ModelBaseServiceStub constructor.
+     * @param array $config
+     */
+    public function __construct(array $config = [])
     {
-        return [
+        parent::__construct($config);
+
+        $this->setServicesConfig([
             'service' => BaseServiceStub::class,
-        ];
+        ]);
     }
 }
