@@ -10,10 +10,18 @@ namespace MP\Services\Stub;
 
 use yii\base\BaseObject;
 
+/**
+ * Class ControllerStub
+ *
+ * @package MP\Services\Stub
+ */
 class ControllerStub extends BaseObject
 {
     use ImplementServicesStub;
 
+    /**
+     * @inheritdoc
+     */
     public function services(): array
     {
         return [

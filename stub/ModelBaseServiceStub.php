@@ -9,7 +9,9 @@
 namespace MP\Services\Stub;
 
 /**
- * Class ObjectStub
+ * Class ModelBaseServiceStub class with [[service]] defined
+ *
+ * @package MP\Services\Stub
  *
  * @property BaseServiceStub $service
  * @method BaseServiceStub getService()
