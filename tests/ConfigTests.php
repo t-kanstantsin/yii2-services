@@ -3,7 +3,6 @@
 use MP\Services\Stub\BaseModelServiceStub;
 use MP\Services\Stub\BaseServiceStub;
 use MP\Services\Stub\ModelBaseServiceStub;
-use MP\Services\Stub\ServiceWrongInterfaceStub;
 use PHPUnit\Framework\TestCase;
 use yii\base\InvalidConfigException;
 
@@ -42,7 +41,9 @@ class ConfigTests extends TestCase
     {
         $stub = new ModelBaseServiceStub();
         $stub->setServicesConfig([
-            'service' => ServiceWrongInterfaceStub::class,
+            'service' => new class()
+            {
+            },
         ]);
 
         $this->expectException(InvalidConfigException::class);
