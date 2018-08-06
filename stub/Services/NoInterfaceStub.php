@@ -6,15 +6,16 @@
  * Time: 0:30
  */
 
-namespace MP\Services\Stub;
+namespace MP\Services\Stub\Services;
 
 use MP\Services\BaseService;
+use MP\Services\Stub\ImplementServicesStub;
 
 /**
- * Class BaseServiceStub dummy service for testing
+ * Class WrongInterfaceStub
  *
  * @package MP\Services\Stub
  */
-class BaseServiceStub extends BaseService
+class NoInterfaceStub
 {
 }

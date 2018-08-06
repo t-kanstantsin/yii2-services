@@ -1,9 +1,9 @@
 <?php
 
-use MP\Services\Stub\BaseServiceStub;
-use MP\Services\Stub\InheritServiceStub;
-use MP\Services\Stub\ModelBaseServiceStub;
-use MP\Services\Stub\ModelNoServiceStub;
+use MP\Services\Stub\Services\BaseServiceStub;
+use MP\Services\Stub\Services\InheritServiceStub;
+use MP\Services\Stub\Models\ModelBaseServiceStub;
+use MP\Services\Stub\Models\ModelNoServiceStub;
 use PHPUnit\Framework\TestCase;
 use yii\base\InvalidCallException;
 

@@ -6,7 +6,7 @@
  * Time: 0:30
  */
 
-namespace MP\Services\Stub;
+namespace MP\Services\Stub\Services;
 
 use MP\Services\BaseControllerService;
 

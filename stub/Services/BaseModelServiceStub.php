@@ -1,6 +1,6 @@
 <?php
 
-namespace MP\Services\Stub;
+namespace MP\Services\Stub\Services;
 
 use MP\Services\BaseModelService;
 

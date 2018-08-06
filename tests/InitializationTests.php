@@ -1,12 +1,9 @@
 <?php
 
-use MP\Services\Stub\BaseServiceStub;
-use MP\Services\Stub\ModelBaseServiceStub;
+use MP\Services\Stub\Services\BaseServiceStub;
+use MP\Services\Stub\Models\ModelBaseServiceStub;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class InitializationTests
- */
 class InitializationTests extends TestCase
 {
     public function testInitialization(): void

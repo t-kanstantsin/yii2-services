@@ -6,8 +6,9 @@
  * Time: 0:30
  */
 
-namespace MP\Services\Stub;
+namespace MP\Services\Stub\Models;
 
+use MP\Services\Stub\ImplementServicesStub;
 use yii\base\BaseObject;
 
 /**

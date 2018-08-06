@@ -6,7 +6,9 @@
  * Time: 0:30
  */
 
-namespace MP\Services\Stub;
+namespace MP\Services\Stub\Models;
+
+use MP\Services\Stub\Services\BaseServiceStub;
 
 /**
  * Class ModelBaseServiceStub class with [[service]] defined

@@ -6,16 +6,17 @@
  * Time: 0:30
  */
 
-namespace MP\Services\Stub;
+namespace MP\Services\Stub\Services;
 
-use yii\base\BaseObject;
+use MP\Services\BaseService;
+use MP\Services\Stub\ImplementServicesStub;
 
 /**
- * Class ControllerStub
+ * Class InheritServiceStub represent service that have own services
  *
  * @package MP\Services\Stub
  */
-class ControllerStub extends BaseObject
+class InheritServiceStub extends BaseService
 {
     use ImplementServicesStub;
 
@@ -25,7 +26,7 @@ class ControllerStub extends BaseObject
     public function services(): array
     {
         return [
-            'service' => BaseControllerServiceStub::class,
+            'baseService' => BaseServiceStub::class,
         ];
     }
 }
