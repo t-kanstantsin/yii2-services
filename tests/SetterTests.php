@@ -43,8 +43,9 @@ class SetterTests extends TestCase
     {
         $stub = new ModelBaseServiceStub();
 
-        $stub->service = new BaseServiceStub();
-        $this->assertInstanceOf(BaseServiceStub::class, $stub->service);
+        $service = new BaseServiceStub();
+        $stub->service = $service;
+        $this->assertSame($service, $stub->service);
     }
 
     public function testSetUnknown(): void
