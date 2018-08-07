@@ -15,6 +15,8 @@ use MP\Services\Stub\ImplementServicesStub;
  * Class InheritServiceStub represent service that have own services
  *
  * @package MP\Services\Stub
+ *
+ * @property BaseServiceStub $service
  */
 class InheritServiceStub extends BaseService
 {
@@ -26,7 +28,7 @@ class InheritServiceStub extends BaseService
     public function services(): array
     {
         return [
-            'baseService' => BaseServiceStub::class,
+            'service' => BaseServiceStub::class,
         ];
     }
 }
