@@ -1,8 +1,8 @@
 # yii2-services
 Extension provide very simply use services for models and controllers
 
-Installation
-------------
+
+## Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
@@ -20,12 +20,12 @@ or add
 
 to the require section of your `composer.json` file.
 
-Usage
------
+
+## Usage
 
 Once the extension is installed, simply use it in your code by:
 
-Create service for model:
+Create service for model (must implement IService or extend any of services in MP\Services):
 
 ```php
 use MP\Services\BaseModelService;
@@ -88,3 +88,12 @@ $model->customService->getSampleMethod();
 ```
 
 For controllers, everything is the same, only the service is inherited from **BaseControllerService**
+
+
+## Tests
+
+Run tests with command:
+
+```bash
+./vendor/bin/phpunit
+```
