@@ -2,7 +2,13 @@
   "name": "matthew-p/yii2-services",
   "description": "Extension provide very simply use services for models and controllers",
   "type": "yii2-extension",
-  "keywords": ["yii2","extension","services","controller","model"],
+  "keywords": [
+    "yii2",
+    "extension",
+    "services",
+    "controller",
+    "model"
+  ],
   "license": "MIT",
   "authors": [
     {
@@ -11,12 +17,29 @@
     }
   ],
   "require": {
-    "php": ">=7.1",
-    "yiisoft/yii2": ">=2.0.13"
+    "php": "^7.1",
+    "yiisoft/yii2": "^2.0.13"
   },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
   "autoload": {
     "psr-4": {
-      "MP\\Services\\": ""
+      "MP\\Services\\": "./src"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MP\\Services\\Stub\\": "stub/"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.2"
   }
 }

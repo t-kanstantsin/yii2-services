@@ -16,7 +16,7 @@ use yii\base\BaseObject;
  * @author  Yarmaliuk Mikhail
  * @version 1.0
  */
-class BaseService extends BaseObject
+class BaseService extends BaseObject implements IService
 {
 
 }
